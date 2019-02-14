@@ -1,2 +1,3 @@
 # cinemaApp
-Angular Application - Cinema
+
+This is my Angular Application - Cinema
