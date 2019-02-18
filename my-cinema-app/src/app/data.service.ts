@@ -1,3 +1,5 @@
+import { Cinema } from './Cinema';
+import { Movie } from './Movie';
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
@@ -9,14 +11,15 @@ export class DataService implements InMemoryDbService {
   constructor() { }
   createDb() {
 
-   const  ScreeningS =  [
-    {  id:  1,  num:  'PO1', amount: 1000, userId: 1, clientId: 1, description: 'Insurance policy number PO1' },
-    {  id:  2,  num:  'PO2', amount: 2000, userId: 1, clientId: 2, description: 'Insurance policy number PO2' },
-    {  id:  3,  num:  'PO3', amount: 3000, userId: 1, clientId: 3, description: 'Insurance policy number PO3' },
-    {  id:  4,  num:  'PO4', amount: 4000, userId: 1, clientId: 4, description: 'Insurance policy number PO4' }
-   ];
+    const screenings = [
+      { id: 1, Movie: { title: 'PO1' }, Cinema: { id: 1, seats: [10][15] }, Date: '01.02.2019,20:30 Uhr' },
+      { id: 5, Movie: { title: 'PO11' }, Cinema: { id: 5, seats: [10][15] }, Date: '11.09.2017,18:00 Uhr' },
+      { id: 2, Movie: { title: 'PO2' }, Cinema: { id: 2, seats: [10][15] }, Date: '25.03.2017,18:00 Uhr' },
+      { id: 3, Movie: { title: 'PO3' }, Cinema: { id: 3, seats: [10][15] }, Date: '05.01.2017,18:00 Uhr' },
+      { id: 4, Movie: { title: 'PO4' }, Cinema: { id: 4, seats: [10][15] }, Date: '25.12.2017,18:00 Uhr' }
+    ];
 
-   return {ScreeningS};
+    return { screenings };
 
   }
 }
