@@ -4,34 +4,42 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Injectable, Injector } from '@angular/core';
-import { HttpInterceptor, HttpEvent, HttpRequest, HttpHandler } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 
 export class ScreeningService {
 
-  private screeningsUrl = 'api/allScreenings';
+  public screeningsUrl = 'api/allScreenings';
 
   constructor(private http: HttpClient) { }
 
-  getScreeningForCinema(id: number): Observable<Screening> {
-    return;
+  /** GET screenings from the server */
+  getScreenings(): Observable<Screening[]> {
+    return this.http.get<Screening[]>(this.screeningsUrl)
+      .pipe(
+        tap( screenings => this.log('screenings called')),
+        catchError(this.handleError('getScreenings', []))
+      );
+
   }
-
-  getScreeningForDate(year: number, month: number, day: number): Observable<Screening> {
-
-    return;
-  }
-
-  getScreeningWithTitle(title: string): Observable<Screening> {
-    return;
-  }
-
-  getScreening(id: number): Observable<Screening> {
+   /* GET screnning by id */
+   getScreening(id: number): Observable<Screening> {
     const url = '${this.screeningsUrl}/${id}';
     return this.http.get<Screening>(url).pipe(
         catchError(this.handleError<Screening>('getScreening id=${id}'))
       );
+  }
+
+  getScreeningForCinema(id: number): Observable<Screening[]> {
+    return;
+  }
+
+  getScreeningForDate(year: number, month: number, day: number): Observable<Screening[]> {
+    return;
+  }
+
+  getScreeningWithTitle(title: string): Observable<Screening[]> {
+    return;
   }
 
   /*
