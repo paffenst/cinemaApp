@@ -1,6 +1,6 @@
-import { Movie } from './../Movie';
-import { Cinema } from './../Cinema';
+import { ScreeningService } from './../screening.service';
 import { Component, OnInit } from '@angular/core';
+import { Screening } from '../Screening';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  screenings: Screening[];
 
-  constructor() { }
+  constructor(private screeningService: ScreeningService) { }
 
   ngOnInit() {
+    this.getScreenings();
+    console.log('Test Screening ' +  this.screenings);
   }
 
+  getScreenings(): void {
+    this.screeningService.getScreenings()
+      .subscribe(screenings => this.screenings = screenings);
+  }
 }
