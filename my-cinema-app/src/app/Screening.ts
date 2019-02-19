@@ -2,7 +2,7 @@ import { Cinema } from './Cinema';
 import { Movie } from './Movie';
 
 
-export class Screening {
+export interface Screening {
   id: number;
   movie: Movie;
   cinema: Cinema;

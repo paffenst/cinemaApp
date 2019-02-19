@@ -1,3 +1,5 @@
+import { Movie } from './../Movie';
+import { Cinema } from './../Cinema';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

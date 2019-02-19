@@ -12,7 +12,11 @@ import { MovieComponent } from './movie/movie.component';
 import { BuyComponent } from './buy/buy.component';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { DataService } from './data.service';
+
 
 @NgModule({
   declarations: [
@@ -27,6 +31,8 @@ import { DataService } from './data.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(DataService),
     InMemoryWebApiModule.forRoot(DataService)
   ],
   providers: [],

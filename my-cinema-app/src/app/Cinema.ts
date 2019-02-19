@@ -1,5 +1,5 @@
 
-export class Cinema {
+export interface Cinema {
 
   id: number;
   seats: boolean[][];
