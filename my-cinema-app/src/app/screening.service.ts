@@ -1,26 +1,28 @@
-import { Screening } from './Screening';
+import { Screening } from './screening';
 
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Injectable, Injector } from '@angular/core';
 
-@Injectable({ providedIn: 'root' })
-
+@Injectable({
+  providedIn: 'root'
+})
 export class ScreeningService {
 
-  public screeningsUrl = 'api/allScreenings';
-
+  screeningsUrl = 'api/allScreenings';
+  moviesUrl = 'api/allMovies';
   constructor(private http: HttpClient) { }
 
   /** GET screenings from the server */
   getScreenings(): Observable<Screening[]> {
-    return this.http.get<Screening[]>(this.screeningsUrl)
-      .pipe(
+    console.log('Testtt getScreenings');
+    return this.http.get<Screening[]>(this.screeningsUrl);
+   /*   .pipe(
         tap( screenings => this.log('screenings called')),
         catchError(this.handleError('getScreenings', []))
       );
-
+*/
   }
    /* GET screnning by id */
    getScreening(id: number): Observable<Screening> {

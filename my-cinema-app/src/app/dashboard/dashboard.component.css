@@ -9,6 +9,8 @@
 }
 a {
   text-decoration: none;
+  size: 4px;
+
 }
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
@@ -20,6 +22,7 @@ h3 {
 }
 h4 {
   position: relative;
+  size: 2px;
 }
 .grid {
   margin: 0;

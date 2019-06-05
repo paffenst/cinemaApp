@@ -1,10 +1,13 @@
-<h3>Top Movies</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let screeening of screenings" class="col-1-4"
-  routerLink="/allMovies/{{screeening.id}}">
-    <div class="module Movies">
-      <h4>{{screeening}}</h4>
-    </div>
-  </a>
-  <div>Hallooooooo</div>
-</div>
+<h2>Top Movies</h2>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+  </tr>
+  <tr *ngFor="let screeening of screenings" >
+    <td>{{ screeening.id }}</td>
+    <td>{{ screeening.name }}</td>
+    <td>Halllo
+    </td>
+  </tr>
+</table>

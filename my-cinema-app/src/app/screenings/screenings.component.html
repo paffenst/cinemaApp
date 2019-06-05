@@ -1,3 +1,13 @@
-<p>
-  screenings works!
-</p>
+<h2>Top screenings</h2>
+<div class='grid grid-pad'>
+    <a *ngFor='let screeening of screenings' class="col-1-4"
+    routerLink="/allMovies/{{screeening.id}}">
+      <div class="module movies">
+        <h4>{{screeening.name}}</h4>
+      </div>
+    </a>
+  </div>
+  <ul>
+    <a>Test</a>
+      <li *ngFor="let screeening of screenings">{{screeening.id}}</li>
+  </ul>
